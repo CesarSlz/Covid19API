@@ -1,4 +1,4 @@
-package com.clubprogramacionbarbaro.dto;
+package com.clubprogramacionbarbaro.covidapi.dto;
 
 import lombok.Data;
 

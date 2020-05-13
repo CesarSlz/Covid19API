@@ -2,10 +2,12 @@ package com.clubprogramacionbarbaro.covidapi.service.impl;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
 import com.clubprogramacionbarbaro.covidapi.dao.HospitalRepository;
+import com.clubprogramacionbarbaro.covidapi.error.HospitalNotFoundException;
 import com.clubprogramacionbarbaro.covidapi.model.Hospital;
 import com.clubprogramacionbarbaro.covidapi.service.HospitalService;
 
@@ -24,8 +26,8 @@ public class HospitalServiceImpl implements HospitalService {
 	}
 	
 	@Override
-	public Hospital findHospitalById(Integer hospitalId) {
-		return repository.findById(hospitalId).get();
+	public Optional<Hospital> findHospitalById(Integer hospitalId) {
+		return repository.findById(hospitalId);
 	}
 	
 	@Override
@@ -36,7 +38,7 @@ public class HospitalServiceImpl implements HospitalService {
 	
 	@Override
 	public Hospital updateHospital(Integer hospitalId, Hospital hospital) {
-		Hospital hospitalDB = findHospitalById(hospitalId);
+		Hospital hospitalDB = findHospitalById(hospitalId).get();
 		hospitalDB.setNombre(hospital.getNombre());
 		hospitalDB.setLatitud(hospital.getLatitud());
 		hospitalDB.setLongitud(hospital.getLongitud());

@@ -20,9 +20,9 @@ public class Usuario {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer usuarioId;
 	
 	@Column(unique = true)
-	private Integer usuarioId;
 	private String email;
 	private String contrasena;
 	

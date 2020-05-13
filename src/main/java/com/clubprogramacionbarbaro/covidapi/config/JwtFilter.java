@@ -1,4 +1,4 @@
-package com.clubprogramacionbarbaro.config;
+package com.clubprogramacionbarbaro.covidapi.config;
 
 import java.io.IOException;
 
